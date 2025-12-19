@@ -3,10 +3,7 @@ pandas
 matplotlib
 plotly
 scikit-learn
-tensorflow>=2.13
-torch>=2.1
-torchvision>=0.16
-torchaudio>=2.1
+tensorflow-cpu>=2.13
 shap>=0.46.0
 ta
 streamlit>=1.36

@@ -15,9 +15,9 @@ RUN apt-get update && apt-get install -y \
 # Copy the requirements file into the container at /app
 COPY requirements.txt .
 
-# Install any needed packages specified in requirements.txt
-# Upgrade pip first to avoid issues with older pip versions
+# Install CPU-only PyTorch to save space (must come before requirements.txt to prevent overwriting)
 RUN pip install --upgrade pip && \
+    pip install torch --index-url https://download.pytorch.org/whl/cpu && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the working directory contents into the container at /app
