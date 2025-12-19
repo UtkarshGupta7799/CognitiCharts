@@ -5,7 +5,7 @@ services:
     plan: free
     region: oregon 
     branch: main
-    repo: https://github.com/YOUR_USERNAME/CognitiCharts # Placeholder, user needs to update this or connect manual repo
+    repo: https://github.com/UtkarshGupta7799/CognitiCharts
     healthCheckPath: /_stcore/health
     envVars:
       - key: PYTHON_VERSION
