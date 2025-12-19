@@ -27,7 +27,8 @@ COPY . .
 EXPOSE 8501
 
 # Healthcheck to ensure the app is running
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1
+HEALTHCHECK --interval=30s --timeout=30s --start-period=30s --retries=5 \
+  CMD curl --fail http://localhost:8501/_stcore/health || exit 1
 
 # Command to run the application
 # server.address=0.0.0.0 is crucial for docker/cloud accessibility
