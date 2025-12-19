@@ -11,7 +11,8 @@ cfg = load_config(); lookback = cfg["data"]["lookback"]
 
 tab1, tab2 = st.tabs(["CSV → Predict", "Chart Image → Predict"])
 with tab1:
-    fw = st.selectbox("Framework", ["tf","torch"], index=0)
+    framework = st.sidebar.selectbox("Framework", ["tf", "torch"], index=0)
+threshold = st.sidebar.slider("Breakout Confidence Threshold", 0.0, 1.0, 0.60, help="If predicted prob < threshold, Breakout is reclassified as Consolidation.")
     uploaded = st.file_uploader("Upload CSV (date,open,high,low,close,volume)", type=["csv"])
     if st.button("Run Prediction (CSV)", use_container_width=True):
         try:
@@ -19,7 +20,7 @@ with tab1:
             if uploaded is not None:
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp:
                     uploaded.seek(0); tmp.write(uploaded.read()); source = tmp.name
-            preds = predict_series(source, lookback=lookback, framework=fw)
+        preds = predict_series(source, lookback=lookback, framework=fw, min_breakout_prob=threshold)
             st.session_state["csv_preds"] = preds
             st.success("CSV predictions ready!")
         except Exception as e:
