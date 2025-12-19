@@ -1,0 +1,25 @@
+# Version control
+.git
+.gitignore
+
+# Python cache and environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+
+# IDE settings
+.vscode/
+.idea/
+
+# Local data (optional: decide if you want to bake data into image or not)
+# Usually we want sample data, but maybe not large training artifacts if they exist locally
+# Keeping sample_data for this demo app
+# models/  <-- uncomment if you don't want to include pre-trained models in the image
+
+# OS generated files
+.DS_Store
+Thumbs.db
