@@ -30,7 +30,9 @@ with tab1:
         st.bar_chart(st.session_state["csv_preds"]["pred_label"].value_counts())
 
 with tab2:
-    fw2 = st.selectbox("Image Framework", ["tf","torch"], index=0, key="imgfw")
+    # fw2 = st.selectbox("Image Framework", ["tf","torch"], index=0, key="imgfw")
+    # Generating torch image models is disabled to save resources
+    fw2 = "tf"
     img = st.file_uploader("Upload chart image (png/jpg)", type=["png","jpg","jpeg"])
     if st.button("Run Prediction (Image)", use_container_width=True):
         try:
