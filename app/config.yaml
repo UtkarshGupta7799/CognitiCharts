@@ -13,3 +13,6 @@ backtest:
   commission_bps: 1
   start: null            # e.g., "2021-01-01"
   end: null              # e.g., "2024-12-31"
+image:
+  img_size: 224
+  per_class: 100

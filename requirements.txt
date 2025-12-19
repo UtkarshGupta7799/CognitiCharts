@@ -6,6 +6,7 @@ scikit-learn
 tensorflow-cpu>=2.13
 shap>=0.46.0
 ta
+Pillow
 streamlit>=1.36
 pyyaml
 joblib
