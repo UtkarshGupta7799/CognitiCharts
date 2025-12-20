@@ -38,8 +38,8 @@ See `sample_data/sample_prices.csv` for an example.
 - Strategy: go long when “Breakout” is predicted today; exit on opposite signal or after `max_hold_days` (configurable).
 - Metrics: cumulative return, hit-rate, max drawdown, **Sharpe ratio**.
 
-## Reproducing Your Claims
-1. Train on your 5+ year dataset.
+## Reproducing Claims
+1. Train on a dataset.
 2. Use `--val_split` and `--test_split` to hold out data.
 3. Run `cogniti_charts.backtest` to evaluate strategy.
 4. Use `cogniti_charts.shap_utils` to quantify false positives before/after a SHAP‑filtered threshold.
