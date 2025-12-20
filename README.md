@@ -44,22 +44,6 @@ See `sample_data/sample_prices.csv` for an example.
 3. Run `cogniti_charts.backtest` to evaluate strategy.
 4. Use `cogniti_charts.shap_utils` to quantify false positives before/after a SHAP‑filtered threshold.
 
-## Deployment
-
-### Docker (Recommended for Render/Railway)
-This project is ready for deployment on platforms like Render using the included `Dockerfile` and `render.yaml`.
-
-**Deploy to Render:**
-1. Connect your repo to Render.
-2. Select "Blueprints".
-3. Render will detect `render.yaml` and configure the service automatically.
-
-**Run locally with Docker:**
-```bash
-docker build -t cogniticharts .
-docker run -p 8501:8501 cogniticharts
-```
-
 ## Project Layout
 ```
 CognitiCharts/
@@ -74,10 +58,6 @@ CognitiCharts/
     shap_utils.py
     train.py
     utils.py
-  sample_data/sample_prices.csv
-  scripts/prepare_data.py
-  requirements.txt
-  README.md
   .streamlit/config.toml
   app/config.yaml
 ```
