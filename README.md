@@ -1,16 +1,85 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/UtkarshGupta7799/CognitiCharts/main/cogniticharts-banner.png"
+       alt="CognitiCharts — AI Chart Pattern Recognition & Backtesting"
+       width="100%" />
+</div>
+
 # CognitiCharts
 
-An end‑to‑end AI pattern recognition & backtesting toolkit for financial charts.  
-Built with **Python**, **TensorFlow**, **PyTorch**, **SHAP**, and a **Streamlit** UI.
+An end-to-end AI system for **financial chart pattern recognition and quantitative backtesting**, integrating deep learning with explainable AI techniques.  
+Built using **Python**, **TensorFlow**, **PyTorch**, **SHAP**, and a **Streamlit** visualization layer.
 
-## Highlights
-- **High Performance**: Achieved **87% accuracy** in pattern recognition across 10,000+ financial charts.
-- **Explainable AI**: Integrated **SHAP** interpretability, reducing false alerts by **28%** and increasing trader confidence.
-- **Proven Strategy**: Backtesting pipeline delivered a **2.3 Sharpe ratio**, validated on 5 years of market data.
-- **Dual Framework**: Supports both **TensorFlow** and **PyTorch** backends.
-- **Full Stack**: Complete pipeline from data preparation to training and a **Streamlit** UI for visualization.
+---
 
-## Quick Start (TL;DR)
+## System Overview
+
+CognitiCharts provides a complete research-grade pipeline for detecting technical chart patterns, interpreting model decisions, and evaluating trading strategies through systematic backtesting.
+
+The system emphasizes:
+- Model transparency and interpretability  
+- Reproducibility of results  
+- Framework-agnostic deep learning workflows  
+
+---
+
+## Key Highlights
+
+- **Pattern Recognition Performance**  
+  Achieved **87% classification accuracy** across 10,000+ historical financial charts.
+
+- **Explainable AI Integration**  
+  Integrated **SHAP-based interpretability**, reducing false alerts by **28%** and improving signal reliability.
+
+- **Backtesting & Strategy Validation**  
+  End-to-end backtesting pipeline yielding a **2.3 Sharpe ratio**, evaluated on **5 years of historical market data**.
+
+- **Dual Deep Learning Framework Support**  
+  Supports both **TensorFlow** and **PyTorch** backends for training and inference.
+
+- **End-to-End Coverage**  
+  Covers data preparation, feature engineering, model training, inference, explanation, and visualization.
+
+---
+
+## Data Specification
+
+- Input format: CSV  
+- Required columns: `date`, `open`, `high`, `low`, `close`, `volume`  
+- Default granularity: daily price data  
+
+An example dataset is provided in the repository for reference.
+
+---
+
+## Backtesting Methodology
+
+- **Signal Logic**  
+  A long position is initiated when a *Breakout* pattern is predicted.
+
+- **Exit Criteria**  
+  Positions are exited on an opposing signal or after a configurable holding period.
+
+- **Evaluation Metrics**
+  - Cumulative return  
+  - Hit rate  
+  - Maximum drawdown  
+  - Sharpe ratio  
+
+---
+
+## Reproducibility
+
+Reported results are reproducible by:
+- Training models with explicit validation and test splits  
+- Running the integrated backtesting module  
+- Applying SHAP-based filtering to analyze false-positive reduction  
+
+All major components are modular and configurable.
+
+---
+
+## Setup
+
 ```bash
 # 1) Create a fresh environment (optional but recommended)
 python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
@@ -29,20 +98,6 @@ python -m cogniti_charts.train --framework torch
 # 5) Run Streamlit app
 streamlit run app/streamlit_app.py
 ```
-
-## Data Format
-CSV with columns: `date,open,high,low,close,volume` (daily).  
-See `sample_data/sample_prices.csv` for an example.
-
-## Backtest
-- Strategy: go long when “Breakout” is predicted today; exit on opposite signal or after `max_hold_days` (configurable).
-- Metrics: cumulative return, hit-rate, max drawdown, **Sharpe ratio**.
-
-## Reproducing Claims
-1. Train on a dataset.
-2. Use `--val_split` and `--test_split` to hold out data.
-3. Run `cogniti_charts.backtest` to evaluate strategy.
-4. Use `cogniti_charts.shap_utils` to quantify false positives before/after a SHAP‑filtered threshold.
 
 ## Project Layout
 ```
